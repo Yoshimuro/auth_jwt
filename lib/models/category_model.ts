@@ -1,5 +1,6 @@
 import {db} from "../config/database";
 import {DataTypes, Model} from "sequelize";
+import {SubCategory} from "./subcategory_model";
 
 export class Category extends Model{
     id:number;
@@ -32,11 +33,17 @@ Category.init({
     },
     img_product:{
         type: DataTypes.STRING,
-    }
+    },
 },
     {
         tableName:'Category',
         sequelize:db
     })
+
+Category.hasMany(SubCategory, {
+    sourceKey:"id",
+    foreignKey:"id_category",
+    as:"Relationships to subCategory"
+})
 
 Category.sync().then(()=> console.log('category Table created'))

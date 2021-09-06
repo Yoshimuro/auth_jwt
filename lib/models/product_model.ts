@@ -1,5 +1,6 @@
 import {db} from "../config/database";
 import {DataTypes, Model} from "sequelize";
+import {SubCategory} from "./subcategory_model";
 
 export class Product extends Model{
     id:number;
@@ -32,11 +33,20 @@ Product.init({
         },
         img_product:{
             type: DataTypes.STRING,
+        },
+        id_subCategory:{
+            type:DataTypes.INTEGER
         }
     },
     {
         tableName:'Product',
         sequelize:db
     })
+
+SubCategory.hasMany(Product,{
+    sourceKey:"id",
+    foreignKey:"id_subCategory",
+    as:"Associations Products to SubCategory"
+})
 
 Product.sync().then(()=> console.log('Product Table created'))

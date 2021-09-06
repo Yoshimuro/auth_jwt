@@ -30,9 +30,13 @@ SubCategory.init({
         description:{
             type:DataTypes.TEXT
         },
-        img_product:{
+        img_subCategory:{
             type: DataTypes.STRING,
-        }
+        },
+        id_category:{
+            type: DataTypes.INTEGER
+        },
+
     },
     {
         tableName:'subCategory',

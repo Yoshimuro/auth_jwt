@@ -1,5 +1,6 @@
 import {db} from "../config/database";
 import {DataTypes, Model} from "sequelize";
+import {Category} from "./category_model";
 
 export class Requests extends Model{
     id!:number;
@@ -64,5 +65,11 @@ Requests.init({
         sequelize: db
     }
 )
+
+Requests.hasMany(Category,{
+    sourceKey:"category_id",
+    foreignKey:"id",
+    as:"category on Request"
+})
 
 Requests.sync().then(()=> console.log(`Requests Table created`))
