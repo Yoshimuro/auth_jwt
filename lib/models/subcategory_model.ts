@@ -46,6 +46,8 @@ SubCategory.init(
   }
 );
 
+// TODO: Разобраться в миграциях
+
 Category.hasMany(SubCategory, {
   sourceKey: "id",
   foreignKey: "id_category",
