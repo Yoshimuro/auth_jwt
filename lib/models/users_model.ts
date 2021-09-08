@@ -13,7 +13,17 @@ export class User extends Model {
     readonly updatedAt!: Date;
 }
 
-export default interface UserInterface extends Model {
+export interface UserAddInterface {
+    email:string
+    password:string
+}
+
+export interface UserViewInterface{
+    id:number
+    email:string
+}
+
+export  interface UserInterface extends Model {
     name: string;
     email: string;
     password: string;
