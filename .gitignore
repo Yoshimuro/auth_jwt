@@ -1,3 +1,6 @@
 package-lock.json
 node_modules
 example Posts.txt
+/.idea/dbnavigator.xml
+/.idea/prettier.xml
+/.idea/vcs.xml
